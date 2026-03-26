@@ -1,0 +1,7 @@
+.env
+node_modules
+run-migrations.js
+migrations
+run-Migraciones
+
+DOCUMENTACION.md
