@@ -6,6 +6,7 @@ const MicroCiclo = sequelize.define('MicroCiclo', {
     ID_MicroCiclo: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false, autoIncrement: true  },
     FechaInicio: { type: DataTypes.DATE, allowNull: true },
     FechaFin: { type: DataTypes.DATE, allowNull: true },
+    Nombre: { type: DataTypes.STRING, allowNull: true },
     Descripcion: { type: DataTypes.STRING, allowNull: true },
     TipoCiclo: { type: DataTypes.STRING, allowNull: true },
     MacroCiclo_FK: {type:DataTypes.INTEGER, allowNull: true,
