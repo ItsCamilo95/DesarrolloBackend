@@ -145,10 +145,36 @@ const ObtenerMesoCiclosPorMacroCiclo = async (req, res) => {
     }
 };
 
+// Eliminar MesoCiclo
+const EliminarMesoCiclo = async (req, res) => {
+    try {
+        const { ID_MesoCiclo } = req.params;
+        const mesoCiclo = await MesoCiclo.findByPk(ID_MesoCiclo);
+
+        if (!mesoCiclo) {
+            return res.status(404).json({ error: 'Meso ciclo no encontrado' });
+        }
+
+        await mesoCiclo.destroy();
+
+        res.status(200).json({
+            message: 'Meso ciclo eliminado correctamente',
+            timestamp: new Date(),
+            data: mesoCiclo
+        });
+    } catch (error) {
+        console.error('Error al eliminar meso ciclo:', error);
+        res.status(500).json({ error: 'Error al eliminar meso ciclo', details: error.message });
+    }
+};
+
+
+
 module.exports = {
     CrearMesoCiclo,
     EditarMesoCiclo,
     ObtenerMesoCiclos,
     ObtenerMesoCicloPorId,
-    ObtenerMesoCiclosPorMacroCiclo
+    ObtenerMesoCiclosPorMacroCiclo,
+    EliminarMesoCiclo
 };

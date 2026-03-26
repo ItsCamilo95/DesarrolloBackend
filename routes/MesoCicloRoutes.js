@@ -4,7 +4,8 @@ const {
     EditarMesoCiclo,
     ObtenerMesoCiclos,
     ObtenerMesoCicloPorId,
-    ObtenerMesoCiclosPorMacroCiclo
+    ObtenerMesoCiclosPorMacroCiclo,
+    EliminarMesoCiclo
 } = require('../controllers/MesoCicloController');
 
 const router = Express.Router();
@@ -14,5 +15,6 @@ router.put('/RutaMesoCiclo/EditarMesoCiclo/:ID_MesoCiclo', EditarMesoCiclo);
 router.get('/RutaMesoCiclo', ObtenerMesoCiclos);
 router.get('/RutaMesoCiclo/:ID_MesoCiclo', ObtenerMesoCicloPorId);
 router.get('/RutaMesoCiclo/PorMacroCiclo/:macroCicloId', ObtenerMesoCiclosPorMacroCiclo);
+router.delete('/RutaMesoCiclo/:ID_MesoCiclo', EliminarMesoCiclo);
 
 module.exports = router;
