@@ -3,15 +3,6 @@ const {sequelize} = require('../../config/database');
 
 const EntrenamientoDiario = sequelize.define('EntrenamientoDiario', {
     ID_EntrenamientoDiario: { type: DataTypes.INTEGER, primaryKey: true, allowNull: false, autoIncrement: true  },
-    EntrenamientoFlash: { type: DataTypes.BOOLEAN, allowNull: true },
-    EntrenamientoFlash_FK: {type:DataTypes.INTEGER, allowNull: true,
-    references: {
-        model: 'EntrenamientoFlash',   // nombre EXACTO de la tabla
-        key: 'ID_EntrenamientoFlash'    // clave primaria del modelo MacroCiclo
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE'
-    },
     MicroCiclo_FK: {type:DataTypes.INTEGER, allowNull: true,
     references: {
         model: 'MicroCiclo',   // nombre EXACTO de la tabla
