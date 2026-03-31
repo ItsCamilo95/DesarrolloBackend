@@ -15,9 +15,6 @@ const ResultadoChequeo = sequelize.define('ResultadoChequeo', {
     Atributo: { type: DataTypes.STRING, allowNull: true },
     Valor: { type: DataTypes.INTEGER, allowNull: true },
     Unidad: { type: DataTypes.STRING, allowNull: true },
-
-    
-
 }, {
   tableName: 'ResultadoChequeo',
   timestamps: false
