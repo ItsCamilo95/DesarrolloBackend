@@ -15,16 +15,7 @@ const EntrenamientoDiario = sequelize.define('EntrenamientoDiario', {
     HoraInicio: { type: DataTypes.TIME, allowNull: true },
     HoraFin: { type: DataTypes.TIME, allowNull: true },
     Tipo: { type: DataTypes.STRING, allowNull: true },
-    Descripcion: { type: DataTypes.STRING, allowNull: true },
-    Chequeo: { type: DataTypes.BOOLEAN, allowNull: true },
-    Chequeo_FK: {type:DataTypes.INTEGER, allowNull: true,
-    references: {
-        model: 'Chequeo',   // nombre EXACTO de la tabla
-        key: 'ID_Chequeo'    // clave primaria del modelo MacroCiclo
-    },
-    onUpdate: 'CASCADE',
-    onDelete: 'CASCADE'
-    }
+    Descripcion: { type: DataTypes.STRING, allowNull: true }
 },{
     tableName: 'EntrenamientoDiario',
     timestamps: false

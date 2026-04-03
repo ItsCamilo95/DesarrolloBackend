@@ -3,13 +3,13 @@ const Chequeo = require('../shared/models/Chequeo');
 // Crear Chequeo
 const AgregarChequeo = async (req, res) => {
     try {
-        const { Fecha, SemanaCiclo, Observaciones, EntrenamientoDiario_FK } = req.body;
+        const { Fecha, SemanaCiclo, Observaciones, MicroCiclo_FK } = req.body;
 
         const nuevoChequeo = await Chequeo.create({
             Fecha: Fecha || null,
             SemanaCiclo: SemanaCiclo || null,
             Observaciones: Observaciones || null,
-            EntrenamientoDiario_FK: EntrenamientoDiario_FK || null
+            MicroCiclo_FK: MicroCiclo_FK || null
         });
 
         res.status(201).json({
@@ -27,7 +27,7 @@ const AgregarChequeo = async (req, res) => {
 const EditarChequeo = async (req, res) => {
     try {
         const { id } = req.params;
-        const { Fecha, SemanaCiclo, Observaciones, EntrenamientoDiario_FK } = req.body;
+        const { Fecha, SemanaCiclo, Observaciones, MicroCiclo_FK } = req.body;
 
         const chequeoExistente = await Chequeo.findByPk(id);
         if (!chequeoExistente) {
@@ -38,7 +38,7 @@ const EditarChequeo = async (req, res) => {
             Fecha: Fecha || chequeoExistente.Fecha,
             SemanaCiclo: SemanaCiclo || chequeoExistente.SemanaCiclo,
             Observaciones: Observaciones || chequeoExistente.Observaciones,
-            EntrenamientoDiario_FK: EntrenamientoDiario_FK || chequeoExistente.EntrenamientoDiario_FK
+            MicroCiclo_FK: MicroCiclo_FK || chequeoExistente.MicroCiclo_FK
         });
 
         res.status(200).json({
@@ -88,26 +88,26 @@ const ObtenerChequeoPorId = async (req, res) => {
     }
 };
 
-// Obtener Chequeos por EntrenamientoDiario
-const ObtenerChequeosPorEntrenamientoDiario = async (req, res) => {
+// Obtener Chequeos por MicroCiclo
+const ObtenerChequeosPorMicroCiclo = async (req, res) => {
     try {
-        const { entrenamientoDiarioId } = req.params;
+        const { microCicloId } = req.params;
         const chequeos = await Chequeo.findAll({
-            where: { EntrenamientoDiario_FK: entrenamientoDiarioId }
+            where: { MicroCiclo_FK: microCicloId }
         });
 
         if (!chequeos || chequeos.length === 0) {
-            return res.status(404).json({ error: 'No se encontraron chequeos para este entrenamiento diario' });
+            return res.status(404).json({ error: 'No se encontraron chequeos para este micro ciclo' });
         }
 
         res.status(200).json({
-            message: 'Chequeos obtenidos correctamente para el entrenamiento diario',
+            message: 'Chequeos obtenidos correctamente para el micro ciclo',
             timestamp: new Date(),
             data: chequeos
         });
     } catch (error) {
-        console.error('Error al obtener chequeos por entrenamiento diario:', error);
-        res.status(500).json({ error: 'Error al obtener chequeos por entrenamiento diario', details: error.message });
+        console.error('Error al obtener chequeos por micro ciclo:', error);
+        res.status(500).json({ error: 'Error al obtener chequeos por micro ciclo', details: error.message });
     }
 };
 
@@ -139,6 +139,6 @@ module.exports = {
     EditarChequeo,
     ObtenerChequeos,
     ObtenerChequeoPorId,
-    ObtenerChequeosPorEntrenamientoDiario,
+    ObtenerChequeosPorMicroCiclo,
     EliminarChequeo
 };

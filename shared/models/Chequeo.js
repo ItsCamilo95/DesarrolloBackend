@@ -7,15 +7,14 @@ const Chequeo = sequelize.define('Chequeo', {
     Fecha: { type: DataTypes.DATE, allowNull: true },
     SemanaCiclo: { type: DataTypes.STRING, allowNull: true },
     Observaciones: { type: DataTypes.STRING, allowNull: true },
-    EntrenamientoDiario_FK: {type:DataTypes.INTEGER, allowNull: true,
+    MicroCiclo_FK: {type:DataTypes.INTEGER, allowNull: true,
     references: {
-        model: 'EntrenamientoDiario',   // nombre EXACTO de la tabla
-        key: 'ID_EntrenamientoDiario'    // clave primaria del modelo MacroCiclo
+        model: 'MicroCiclo',   // nombre EXACTO de la tabla
+        key: 'ID_MicroCiclo'    // clave primaria del modelo MacroCiclo
     },
     onUpdate: 'CASCADE',
     onDelete: 'CASCADE'
-    },
-
+    }
 }, {
   tableName: 'Chequeo',
   timestamps: false

@@ -4,7 +4,7 @@ const {
     EditarChequeo,
     ObtenerChequeos,
     ObtenerChequeoPorId,
-    ObtenerChequeosPorEntrenamientoDiario,
+    ObtenerChequeosPorMicroCiclo,
     EliminarChequeo
 } = require('../controllers/ChequeoController');
 
@@ -14,7 +14,7 @@ router.post('/RutaChequeo/AgregarChequeo', AgregarChequeo);
 router.put('/RutaChequeo/EditarChequeo/:id', EditarChequeo);
 router.get('/RutaChequeo', ObtenerChequeos);
 router.get('/RutaChequeo/:id', ObtenerChequeoPorId);
-router.get('/RutaChequeo/PorEntrenamientoDiario/:entrenamientoDiarioId', ObtenerChequeosPorEntrenamientoDiario);
+router.get('/RutaChequeo/PorMicroCiclo/:microCicloId', ObtenerChequeosPorMicroCiclo);
 router.delete('/RutaChequeo/:id', EliminarChequeo);
 
 module.exports = router;

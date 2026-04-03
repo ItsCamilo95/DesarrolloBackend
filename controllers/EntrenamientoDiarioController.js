@@ -9,9 +9,7 @@ const AgregarEntrenamientoDiario = async (req, res) => {
             HoraInicio,
             HoraFin,
             Tipo,
-            Descripcion,
-            Chequeo,
-            Chequeo_FK
+            Descripcion
         } = req.body;
 
         const nuevoEntrenamientoDiario = await EntrenamientoDiario.create({
@@ -20,9 +18,7 @@ const AgregarEntrenamientoDiario = async (req, res) => {
             HoraInicio: HoraInicio || null,
             HoraFin: HoraFin || null,
             Tipo: Tipo || null,
-            Descripcion: Descripcion || null,
-            Chequeo: Chequeo || null,
-            Chequeo_FK: Chequeo_FK || null
+            Descripcion: Descripcion || null
         });
 
         res.status(201).json({
@@ -46,9 +42,7 @@ const EditarEntrenamientoDiario = async (req, res) => {
             HoraInicio,
             HoraFin,
             Tipo,
-            Descripcion,
-            Chequeo,
-            Chequeo_FK
+            Descripcion
         } = req.body;
 
         const entrenamientoExistente = await EntrenamientoDiario.findByPk(id);
@@ -62,9 +56,7 @@ const EditarEntrenamientoDiario = async (req, res) => {
             HoraInicio: HoraInicio || entrenamientoExistente.HoraInicio,
             HoraFin: HoraFin || entrenamientoExistente.HoraFin,
             Tipo: Tipo || entrenamientoExistente.Tipo,
-            Descripcion: Descripcion || entrenamientoExistente.Descripcion,
-            Chequeo: Chequeo !== undefined ? Chequeo : entrenamientoExistente.Chequeo,
-            Chequeo_FK: Chequeo_FK || entrenamientoExistente.Chequeo_FK
+            Descripcion: Descripcion || entrenamientoExistente.Descripcion
         });
 
         res.status(200).json({
