@@ -8,6 +8,7 @@ const MicroCiclo = require('./MicroCiclo');
 const Chequeo = require('./Chequeo');
 const Notas = require('./Notas');
 const ResultadoChequeo = require('./ResultadoChequeo');
+const Usuarios = require('./Usuarios');
 
 
 
@@ -32,5 +33,6 @@ module.exports = {
     EntrenamientoDiario,
     Chequeo,
     Notas,
-    ResultadoChequeo
+    ResultadoChequeo,
+    Usuarios
 }

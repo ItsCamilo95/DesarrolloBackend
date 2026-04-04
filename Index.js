@@ -23,6 +23,7 @@ app.use('/api/EntrenamientoDiario', require('./routes/EntrenamientoDiarioRoutes'
 app.use('/api/Chequeo', require('./routes/ChequeoRoutes'))
 app.use('/api/Notas', require('./routes/NotasRoutes'))
 app.use('/api/ResultadoChequeo', require('./routes/ResultadoChequeoRoutes'))
+app.use('/api/Usuarios', require('./routes/UsuariosRoutes'))
 
 
 
