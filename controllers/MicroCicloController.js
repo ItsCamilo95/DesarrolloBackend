@@ -9,6 +9,7 @@ const CrearMicroCiclo = async (req, res) => {
             TipoCiclo,
             FechaInicio,
             FechaFin,
+            ATR,
             MacroCiclo_FK,
             MesoCiclo_FK
         } = req.body;
@@ -23,6 +24,7 @@ const CrearMicroCiclo = async (req, res) => {
             TipoCiclo: TipoCiclo || null,
             FechaInicio: FechaInicio || null,
             FechaFin: FechaFin || null,
+            ATR: ATR || null,
             MacroCiclo_FK: MacroCiclo_FK || null,
             MesoCiclo_FK
         });
@@ -48,6 +50,7 @@ const EditarMicroCiclo = async (req, res) => {
             TipoCiclo,
             FechaInicio,
             FechaFin,
+            ATR,
             MacroCiclo_FK,
             MesoCiclo_FK
         } = req.body;
@@ -63,6 +66,7 @@ const EditarMicroCiclo = async (req, res) => {
             TipoCiclo: TipoCiclo || microCicloExistente.TipoCiclo,
             FechaInicio: FechaInicio || microCicloExistente.FechaInicio,
             FechaFin: FechaFin || microCicloExistente.FechaFin,
+            ATR: ATR || microCicloExistente.ATR,
             MacroCiclo_FK: MacroCiclo_FK || microCicloExistente.MacroCiclo_FK,
             MesoCiclo_FK: MesoCiclo_FK || microCicloExistente.MesoCiclo_FK
         });

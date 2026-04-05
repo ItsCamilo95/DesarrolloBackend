@@ -13,9 +13,9 @@ const EntrenamientoDiario = sequelize.define('EntrenamientoDiario', {
     },
     Fecha: { type: DataTypes.DATE, allowNull: true },
     HoraInicio: { type: DataTypes.TIME, allowNull: true },
-    HoraFin: { type: DataTypes.TIME, allowNull: true },
     Tipo: { type: DataTypes.STRING, allowNull: true },
-    Descripcion: { type: DataTypes.STRING, allowNull: true }
+    Descripcion: { type: DataTypes.STRING, allowNull: true },
+    Sitio: { type: DataTypes.STRING, allowNull: true }
 },{
     tableName: 'EntrenamientoDiario',
     timestamps: false

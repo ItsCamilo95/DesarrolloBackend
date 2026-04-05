@@ -13,7 +13,7 @@ const ResultadoChequeo = sequelize.define('ResultadoChequeo', {
     onDelete: 'CASCADE'
     },
     Atributo: { type: DataTypes.STRING, allowNull: true },
-    Valor: { type: DataTypes.INTEGER, allowNull: true },
+    Valor: { type: DataTypes.FLOAT, allowNull: true },
     Unidad: { type: DataTypes.STRING, allowNull: true },
 }, {
   tableName: 'ResultadoChequeo',

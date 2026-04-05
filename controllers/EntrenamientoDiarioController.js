@@ -7,18 +7,18 @@ const AgregarEntrenamientoDiario = async (req, res) => {
             MicroCiclo_FK,
             Fecha,
             HoraInicio,
-            HoraFin,
             Tipo,
-            Descripcion
+            Descripcion,
+            Sitio
         } = req.body;
 
         const nuevoEntrenamientoDiario = await EntrenamientoDiario.create({
             MicroCiclo_FK: MicroCiclo_FK || null,
             Fecha: Fecha || null,
             HoraInicio: HoraInicio || null,
-            HoraFin: HoraFin || null,
             Tipo: Tipo || null,
-            Descripcion: Descripcion || null
+            Descripcion: Descripcion || null,
+            Sitio: Sitio || null
         });
 
         res.status(201).json({
@@ -40,9 +40,9 @@ const EditarEntrenamientoDiario = async (req, res) => {
             MicroCiclo_FK,
             Fecha,
             HoraInicio,
-            HoraFin,
             Tipo,
-            Descripcion
+            Descripcion,
+            Sitio
         } = req.body;
 
         const entrenamientoExistente = await EntrenamientoDiario.findByPk(id);
@@ -54,9 +54,9 @@ const EditarEntrenamientoDiario = async (req, res) => {
             MicroCiclo_FK: MicroCiclo_FK || entrenamientoExistente.MicroCiclo_FK,
             Fecha: Fecha || entrenamientoExistente.Fecha,
             HoraInicio: HoraInicio || entrenamientoExistente.HoraInicio,
-            HoraFin: HoraFin || entrenamientoExistente.HoraFin,
             Tipo: Tipo || entrenamientoExistente.Tipo,
-            Descripcion: Descripcion || entrenamientoExistente.Descripcion
+            Descripcion: Descripcion || entrenamientoExistente.Descripcion,
+            Sitio: Sitio || entrenamientoExistente.Sitio
         });
 
         res.status(200).json({

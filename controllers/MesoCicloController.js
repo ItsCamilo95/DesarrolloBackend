@@ -10,6 +10,7 @@ const CrearMesoCiclo = async (req, res) => {
             Volumen,
             Intensidad,
             Objetivos,
+            Periodo,
             FechaInicio,
             FechaFin,
             MacroCiclo_FK
@@ -23,9 +24,10 @@ const CrearMesoCiclo = async (req, res) => {
             Nombre: Nombre || null,
             Tipo: Tipo || null,
             Semanas: Semanas || null,
-            Volumen: Volumen || null,
-            Intensidad: Intensidad || null,
+            Volumen: Volumen || null,       // número
+            Intensidad: Intensidad || null, // número
             Objetivos: Objetivos || null,
+            Periodo: Periodo || null,
             FechaInicio: FechaInicio || null,
             FechaFin: FechaFin || null,
             MacroCiclo_FK
@@ -53,6 +55,7 @@ const EditarMesoCiclo = async (req, res) => {
             Volumen,
             Intensidad,
             Objetivos,
+            Periodo,
             FechaInicio,
             FechaFin,
             MacroCiclo_FK
@@ -67,9 +70,10 @@ const EditarMesoCiclo = async (req, res) => {
             Nombre: Nombre || mesoCicloExistente.Nombre,
             Tipo: Tipo || mesoCicloExistente.Tipo,
             Semanas: Semanas || mesoCicloExistente.Semanas,
-            Volumen: Volumen || mesoCicloExistente.Volumen,
-            Intensidad: Intensidad || mesoCicloExistente.Intensidad,
+            Volumen: Volumen || mesoCicloExistente.Volumen,       // número
+            Intensidad: Intensidad || mesoCicloExistente.Intensidad, // número
             Objetivos: Objetivos || mesoCicloExistente.Objetivos,
+            Periodo: Periodo || mesoCicloExistente.Periodo,
             FechaInicio: FechaInicio || mesoCicloExistente.FechaInicio,
             FechaFin: FechaFin || mesoCicloExistente.FechaFin,
             MacroCiclo_FK: MacroCiclo_FK || mesoCicloExistente.MacroCiclo_FK
@@ -167,8 +171,6 @@ const EliminarMesoCiclo = async (req, res) => {
         res.status(500).json({ error: 'Error al eliminar meso ciclo', details: error.message });
     }
 };
-
-
 
 module.exports = {
     CrearMesoCiclo,

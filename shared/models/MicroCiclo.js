@@ -9,6 +9,7 @@ const MicroCiclo = sequelize.define('MicroCiclo', {
     Nombre: { type: DataTypes.STRING, allowNull: true },
     Descripcion: { type: DataTypes.STRING, allowNull: true },
     TipoCiclo: { type: DataTypes.STRING, allowNull: true },
+    ATR: { type: DataTypes.STRING, allowNull: true },
     MacroCiclo_FK: {type:DataTypes.INTEGER, allowNull: true,
     references: {
         model: 'MacroCiclo',   // nombre EXACTO de la tabla
