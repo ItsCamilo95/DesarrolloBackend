@@ -24,6 +24,7 @@ app.use('/api/Chequeo', require('./routes/ChequeoRoutes'))
 app.use('/api/Notas', require('./routes/NotasRoutes'))
 app.use('/api/ResultadoChequeo', require('./routes/ResultadoChequeoRoutes'))
 app.use('/api/Usuarios', require('./routes/UsuariosRoutes'))
+app.use('/api/Estadisticas', require('./routes/EstadisticasRoutes'))
 
 
 
