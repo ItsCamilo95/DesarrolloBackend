@@ -9,7 +9,7 @@ const AgregarEntrenamientoDiario = async (req, res) => {
             HoraInicio,
             Tipo,
             Descripcion,
-            Sitio
+            UbicacionEntrenamiento
         } = req.body;
 
         const nuevoEntrenamientoDiario = await EntrenamientoDiario.create({
@@ -18,7 +18,7 @@ const AgregarEntrenamientoDiario = async (req, res) => {
             HoraInicio: HoraInicio || null,
             Tipo: Tipo || null,
             Descripcion: Descripcion || null,
-            Sitio: Sitio || null
+            UbicacionEntrenamiento: UbicacionEntrenamiento || null
         });
 
         res.status(201).json({
@@ -42,7 +42,7 @@ const EditarEntrenamientoDiario = async (req, res) => {
             HoraInicio,
             Tipo,
             Descripcion,
-            Sitio
+            UbicacionEntrenamiento
         } = req.body;
 
         const entrenamientoExistente = await EntrenamientoDiario.findByPk(id);
@@ -56,7 +56,7 @@ const EditarEntrenamientoDiario = async (req, res) => {
             HoraInicio: HoraInicio || entrenamientoExistente.HoraInicio,
             Tipo: Tipo || entrenamientoExistente.Tipo,
             Descripcion: Descripcion || entrenamientoExistente.Descripcion,
-            Sitio: Sitio || entrenamientoExistente.Sitio
+            UbicacionEntrenamiento: UbicacionEntrenamiento || entrenamientoExistente.UbicacionEntrenamiento
         });
 
         res.status(200).json({
